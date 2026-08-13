@@ -14,8 +14,7 @@ def admin_area(user=Depends(get_current_user)):
         )
 
     if user["role"] != "admin":
-        # BUG INTENCIONAL:
-        # Usuário autenticado, porém sem permissão, deveria receber 403.
+       
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Acesso não permitido",

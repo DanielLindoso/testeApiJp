@@ -2,8 +2,7 @@ from app.data import courses
 
 
 def list_courses():
-    # BUG INTENCIONAL:
-    # Esta condição sempre retorna True, então cursos inativos também aparecem.
+   
     return [course for course in courses if course["active"] or not course["active"]]
 
 

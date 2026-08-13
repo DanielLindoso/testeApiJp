@@ -7,8 +7,7 @@ router = APIRouter(prefix="/courses", tags=["Courses"])
 
 @router.get("")
 def get_courses():
-    # BUG INTENCIONAL:
-    # Uma consulta bem-sucedida deveria responder 200, não 201.
+    
     return Response(
         content=__import__("json").dumps(list_courses()),
         media_type="application/json",
@@ -21,8 +20,7 @@ def get_course(course_id: int):
     course = get_course_by_id(course_id)
 
     if not course:
-        # BUG INTENCIONAL:
-        # O corpo indica erro, mas o status continua 200.
+      
         return {"message": "Curso não encontrado"}
 
     return course
@@ -38,6 +36,5 @@ def remove_course(course_id: int):
             detail="Curso não encontrado",
         )
 
-    # BUG INTENCIONAL:
-    # O contrato esperado é 204 No Content.
+    
     return {"message": "Curso removido"}

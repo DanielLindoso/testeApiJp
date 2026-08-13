@@ -15,6 +15,5 @@ app.include_router(admin.router)
 
 @app.get("/health")
 def health():
-    # BUG INTENCIONAL SUTIL:
-    # A rota responde 200, porém o corpo contradiz o estado esperado.
+   
     return {"status": "offline"}
