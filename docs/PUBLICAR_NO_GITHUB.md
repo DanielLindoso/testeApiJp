@@ -1,5 +1,10 @@
 # Publicar no GitHub
 
+```
+1. Baixe o projeto como ZIP
+```
+
+
 Crie um repositório vazio no GitHub.
 
 Depois:
