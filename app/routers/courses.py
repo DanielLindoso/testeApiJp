@@ -11,7 +11,7 @@ def get_courses():
     return Response(
         content=__import__("json").dumps(list_courses()),
         media_type="application/json",
-        status_code=status.HTTP_201_CREATED,
+        status_code=status.HTTP_200_OK,
     )
 
 
@@ -20,8 +20,10 @@ def get_course(course_id: int):
     course = get_course_by_id(course_id)
 
     if not course:
-      
-        return {"message": "Curso não encontrado"}
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Curso não encontrado",
+        )
 
     return course
 
@@ -37,4 +39,4 @@ def remove_course(course_id: int):
         )
 
     
-    return {"message": "Curso removido"}
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
