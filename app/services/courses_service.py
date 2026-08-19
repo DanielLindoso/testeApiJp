@@ -3,7 +3,7 @@ from app.data import courses
 
 def list_courses():
    
-    return [course for course in courses if course["active"] or not course["active"]]
+    return [course for course in courses if course["active"]]
 
 
 def get_course_by_id(course_id: int):
